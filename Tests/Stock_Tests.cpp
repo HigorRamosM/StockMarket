@@ -1,27 +1,28 @@
 #include "pch.h"
 #include "CppUnitTest.h"
 #include "Stock.h"
+#include "StockTransaction.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
-namespace Tests
+namespace UnitTests
 {
-	TEST_CLASS(Stock)
+	TEST_CLASS(Stocks)
 	{
 	public:
-		
+
 		TEST_METHOD(StockCreation)
 		{
 			namespace SC = StockMarket::Core;
 
-			const int expectedId = 1;
-			const std::string expectedName = "StockName";
-			const int expectedPrice = 10000;
+			int expectedId = 1;
+			std::string expectedName = "StockName";
+			int expectedPrice = 100;
 
-			SC::Stock addStock(expectedId, expectedName, expectedPrice);
-			int id = addStock.getId();
-			std::string name = addStock.getName();
-			int price = addStock.getPrice();
+			SC::Stock test(expectedId, expectedName, expectedPrice);
+			int id = test.getId();
+			std::string name = test.getName();
+			int price = test.getPrice();
 
 			Assert::AreEqual(expectedId, id);
 			Assert::AreEqual(expectedName, name);
